@@ -1,0 +1,88 @@
+.Slider
+  &__item
+    display: flex
+    margin-bottom: 50px
+  &__input
+    align-self: center
+    width: 150px
+    height: 56px
+    font-size: 36px
+    border: 1px solid #000000
+    margin: 0 20px
+  &__text
+    &--center
+      text-align: center
+  &__wrapper
+    display: flex
+    margin: 10px 0
+    padding: 5px
+    border: 1px solid #000000
+  &__range
+    overflow: hidden
+    width: 400px
+    -webkit-appearance: none
+    background-color: #ffffff
+    &:focus
+      outline: none
+    &::-webkit-slider-runnable-track
+      height: 40px
+      -webkit-appearance: none
+    &::-webkit-slider-thumb
+      height: 40px
+      width: 20px
+      -webkit-appearance: none
+      cursor: pointer
+      background: #434343
+    &--green
+      &::-webkit-slider-thumb
+        box-shadow: -400px 0 0 400px #a7ffa4
+    &--red
+      &::-webkit-slider-thumb
+        box-shadow: -400px 0 0 400px #ffa4a4
+
+.CheckBox
+  display: flex
+  justify-content: space-around
+  margin-bottom: 100px
+  &__item
+    display: flex
+    flex-flow: column
+  &__input
+    position: absolute
+    z-index: -1
+    opacity: 0
+    + label
+      cursor: pointer
+      display: inline-flex
+      align-items: center
+      user-select: none
+      &::before
+        content: ''
+        display: inline-block
+        width: 1em
+        height: 1em
+        flex-shrink: 0
+        flex-grow: 0
+        border: 1px solid #adb5bd
+        border-radius: 0.25em
+        margin-right: 0.5em
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: 50% 50%
+    &:not(:disabled)
+      &:not(:checked) + label:hover::before
+        border-color: #b3ffc6
+      &:active + label::before
+        background-color: #b3ffc6
+        border-color: #b3ffc6
+    &:focus
+      + label::before
+        box-shadow: 0 0 0 0.2rem rgba(0, 255, 34, 0.25)
+      &:not(:checked) + label::before
+        border-color: #80ff8b
+    &:checked + label::before
+      border-color: #0bef4f
+      background-color: #0bef4f
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")
+    &:disabled + label::before
+      background-color: #e9ecef
